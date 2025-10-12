@@ -17,6 +17,7 @@ import {
   useColorScheme,
   ScrollView,
   Linking,
+  Image,
 } from "react-native";
 import * as SecureStore from "expo-secure-store";
 
@@ -612,30 +613,15 @@ export default function App() {
         <View style={{ alignItems: "center", marginTop: 24 }}>
           <TouchableOpacity
             onPress={() => Linking.openURL("https://www.buymeacoffee.com/tzii")}
-            style={{
-              backgroundColor: "#FFDD00",
-              borderRadius: 8,
-              paddingVertical: 10,
-              paddingHorizontal: 24,
-              borderWidth: 1,
-              borderColor: "#000",
-              shadowColor: "#000",
-              shadowOffset: { width: 0, height: 2 },
-              shadowOpacity: 0.2,
-              shadowRadius: 2,
-              elevation: 2,
-            }}
+            activeOpacity={0.8}
           >
-            <Text
-              style={{
-                color: "#000",
-                fontFamily: "Cookie", // Remove this line if you don't have the Cookie font
-                fontSize: 22,
-                fontWeight: "700",
+            <Image
+              source={{
+                uri: "https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png",
               }}
-            >
-              Buy me a coffee
-            </Text>
+              style={{ width: 217, height: 60, resizeMode: "contain" }}
+              alt="Buy Me A Coffee"
+            />
           </TouchableOpacity>
         </View>
       </SafeAreaView>
