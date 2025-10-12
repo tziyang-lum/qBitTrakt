@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "qbittorrent-remote",
-    "slug": "qbittorrent-remote",
+    "name": "traktus",
+    "slug": "traktus",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,6 +24,14 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "da383e7d-9d3a-4d43-8482-e879e82823d3"
+      }
+    },
+    "plugins": [
+      "expo-secure-store"
+    ]
   }
 }
