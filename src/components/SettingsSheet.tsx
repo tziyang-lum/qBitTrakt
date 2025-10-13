@@ -38,10 +38,10 @@ export function SettingsSheet({
           <View style={styles.group}>
             <TouchableOpacity
               style={styles.row}
-              onPress={() => Linking.openURL("mailto:feedback@example.com")}
+              onPress={() => Linking.openURL("mailto:qbittrakt@gmail.com")}
             >
               <Text style={styles.rowTitle}>Feedback</Text>
-              <Text style={styles.rowRight}>feedback@example.com</Text>
+              <Text style={styles.rowRight}>qbittrakt@gmail.com</Text>
             </TouchableOpacity>
             <View style={styles.divider} />
             <TouchableOpacity
@@ -62,8 +62,8 @@ export function SettingsSheet({
                 Linking.openURL("https://buymeacoffee.com/yourname")
               }
             >
-              <Text style={styles.rowTitle}>Donate</Text>
-              <Text style={styles.rowRight}>❤️</Text>
+              <Text style={styles.rowTitle}>Remove Ads</Text>
+              <Text style={styles.rowRight}>🚫</Text>
             </TouchableOpacity>
           </View>
 
