@@ -88,7 +88,7 @@ export const makeStyles = (t: Theme) =>
       borderColor: t.border,
       padding: 16,
     },
-    helper: { color: t.subtle, textAlign: "center", marginTop: 12 },
+    helper: { color: t.subtle, textAlign: "center", marginTop: 12, marginHorizontal: 16 },
     meta: { fontSize: 12, color: t.subtle },
     progressOuter: {
       height: 8,

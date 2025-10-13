@@ -299,28 +299,6 @@ export default function App() {
         <Text style={styles.helper}>
           Make sure qBittorrent Web UI is enabled and reachable from your phone.
         </Text>
-
-        <View style={{ alignItems: "center", marginTop: 12 }}>
-          <TouchableOpacity
-            onPress={() =>
-              setThemeMode(
-                themeMode === "system"
-                  ? "dark"
-                  : themeMode === "dark"
-                  ? "light"
-                  : "system"
-              )
-            }
-            style={[
-              styles.headerBtn,
-              { backgroundColor: t.card, borderColor: t.border },
-            ]}
-          >
-            <Text style={[styles.headerBtnText, { color: t.text }]}>
-              Theme: {themeMode}
-            </Text>
-          </TouchableOpacity>
-        </View>
       </SafeAreaView>
     );
 
