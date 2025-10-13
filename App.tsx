@@ -673,12 +673,13 @@ export default function App() {
           value={addUrl}
           onChangeText={setAddUrl}
           placeholder="Paste magnet / .torrent URL"
-          style={styles.input}
+          style={[styles.input, { flexShrink: 1 }]}
           autoCapitalize="none"
           autoCorrect={false}
           keyboardType="url"
           placeholderTextColor={t.subtle}
           selectionColor={t.blue}
+          scrollEnabled
         />
         <TouchableOpacity
           style={[styles.primaryBtn, { backgroundColor: t.blue }]}
