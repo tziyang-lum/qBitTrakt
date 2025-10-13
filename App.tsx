@@ -12,8 +12,8 @@ import {
   Alert,
   Platform,
   useColorScheme,
+  SafeAreaView,
 } from "react-native";
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { paletteLight, paletteDark } from "./src/theme/palettes";
 import { makeStyles } from "./src/theme/styles";
@@ -214,7 +214,7 @@ export default function App() {
 
   if (!connected)
     return (
-      <SafeAreaView edges={['top']} style={styles.screen}>
+      <SafeAreaView style={styles.screen}>
         <StatusBar barStyle={statusBarStyle as any} />
         <Text style={styles.title}>qBitTrakt</Text>
         <Text style={styles.subtitle}>Remote · Connect</Text>
@@ -303,7 +303,7 @@ export default function App() {
     );
 
   return (
-    <SafeAreaView edges={['top']} style={styles.screen}>
+    <SafeAreaView style={styles.screen}>
       <StatusBar barStyle={statusBarStyle as any} />
 
       {/* Header */}

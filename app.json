@@ -22,7 +22,7 @@
         "dark": "./assets/ios-dark.png",
         "light": "./assets/ios-light.png"
       },
-      "bundleIdentifier": "com.tziyanglum.qbittorrentremote",
+      "bundleIdentifier": "com.tziyanglum.qbittrakt",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }

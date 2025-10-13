@@ -43,7 +43,7 @@ export function SettingsSheet({
               <Text style={styles.rowTitle}>Feedback</Text>
               <Text style={styles.rowRight}>qbittrakt@gmail.com</Text>
             </TouchableOpacity>
-            <View style={styles.divider} />
+            {/* <View style={styles.divider} />
             <TouchableOpacity
               style={styles.row}
               onPress={() =>
@@ -64,7 +64,7 @@ export function SettingsSheet({
             >
               <Text style={styles.rowTitle}>Remove Ads</Text>
               <Text style={styles.rowRight}>🚫</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
 
           <View style={{ height: 16 }} />
