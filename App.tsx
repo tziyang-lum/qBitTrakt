@@ -44,6 +44,56 @@ export default function App() {
   const [connected, setConnected] = useState(false);
   const [loading, setLoading] = useState(false);
   const [torrents, setTorrents] = useState<Torrent[]>([]);
+  // Toggle this to true to use mock data
+  const [useMock, setUseMock] = useState(false);
+
+  // Example mock torrents
+  const mockTorrents: Torrent[] = [
+    {
+      hash: 'abc123',
+      name: 'Ubuntu 24.04 ISO',
+      progress: 0.7,
+      size: 2500000000,
+      dlspeed: 1200000,
+      upspeed: 50000,
+      num_leechs: 12,
+      num_seeds: 34,
+      state: 'downloading',
+    },
+    {
+      hash: 'def456',
+      name: 'Big Buck Bunny 1080p.mp4',
+      progress: 1,
+      size: 800000000,
+      dlspeed: 0,
+      upspeed: 0,
+      num_leechs: 0,
+      num_seeds: 0,
+      state: 'seeding',
+    },
+    {
+      hash: 'ghi789',
+      name: 'Node.js Documentation PDF',
+      progress: 0.2,
+      size: 12000000,
+      dlspeed: 300000,
+      upspeed: 0,
+      num_leechs: 2,
+      num_seeds: 5,
+      state: 'downloading',
+    },
+    {
+      hash: 'jkl012',
+      name: 'Sample Archive.zip',
+      progress: 0.95,
+      size: 500000000,
+      dlspeed: 0,
+      upspeed: 0,
+      num_leechs: 0,
+      num_seeds: 0,
+      state: 'stalledDL',
+    },
+  ];
   const [filter, setFilter] = useState<FilterKey>("All");
   const [addUrl, setAddUrl] = useState("");
   const [showSettings, setShowSettings] = useState(false);
@@ -67,8 +117,25 @@ export default function App() {
     });
   }, [torrents, filter]);
 
-  // Poll torrents every 2s when connected
+  // Poll torrents every 2s when connected, or use mock data
   useEffect(() => {
+    // Enable mock if demo credentials are filled
+    if (
+      host.trim().toLowerCase() === 'demo.qbittrakt.app' &&
+      username.trim().toLowerCase() === 'demo' &&
+      password === 'demo'
+    ) {
+      setUseMock(true);
+    } else {
+      setUseMock(false);
+    }
+  }, [host, username, password]);
+
+  useEffect(() => {
+    if (useMock) {
+      setTorrents(mockTorrents);
+      return;
+    }
     if (!connected) return;
     let alive = true;
     const tick = async () => {
@@ -90,7 +157,7 @@ export default function App() {
       alive = false;
       clearInterval(id);
     };
-  }, [connected]);
+  }, [connected, useMock]);
 
   useEffect(() => {
     (async () => {
@@ -125,6 +192,12 @@ export default function App() {
   const onLogin = async () => {
     try {
       setLoading(true);
+      // If using mock/demo credentials, skip QBClient login
+      if (useMock) {
+        setConnected(true);
+        setLoading(false);
+        return;
+      }
       clientRef.current = new QBClient(host);
       await clientRef.current.login(username, password);
       await new Promise((res) => setTimeout(res, 300));
